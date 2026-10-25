@@ -1,0 +1,26 @@
+# Render blueprint for the ApplySure API (Dashboard → New → Blueprint → pick this repo).
+# Free tier: 512 MB, sleeps after 15 idle minutes. No room for ClamAV, so this runs as a "demo"
+# environment that reads uploads unscanned. Files are only read in memory, never stored or served,
+# and PDF/OCR reading is isolated in time-limited child processes. Use the paid setup in DEPLOY.md
+# (docker-compose with ClamAV, ENVIRONMENT=production) for real users.
+services:
+  - type: web
+    name: applysure-api
+    runtime: docker
+    plan: free
+    region: frankfurt
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    envVars:
+      - key: SUPABASE_URL
+        sync: false            # your project root URL, e.g. https://abcd.supabase.co
+      - key: CORS_ORIGINS
+        sync: false            # your Vercel address, e.g. https://applysure.vercel.app
+      - key: ENVIRONMENT
+        value: demo
+      - key: ALLOW_UNSCANNED_UPLOADS
+        value: "true"
+      - key: WEB_CONCURRENCY
+        value: "1"

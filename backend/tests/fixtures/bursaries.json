@@ -1,0 +1,78 @@
+{
+  "_note": "Fake stand-in for the bursaries and bursary_requirements tables in docs/database-design.md. Same shape, so a Supabase-backed store can replace it. Rules marked verified:false are placeholders, not the funder's real rules.",
+  "bursaries": [
+    {
+      "id": "b1a5c0de-0000-4000-8000-000000000001",
+      "title": "ISFAP Bursary",
+      "funder": "Ikusasa Student Financial Aid Programme",
+      "deadline": null,
+      "study_years": [2026, 2027],
+      "faculties": ["engineering", "science"],
+      "courses": [],
+      "official_source_url": "https://www.isfap.co.za",
+      "listing_url": "https://www.zabursaries.co.za",
+      "verified": false,
+      "requirement_set": {
+        "version": "isfap-draft-1",
+        "documents": [
+          {"document_type": "id_document", "label": "Certified copy of ID", "rules": [
+            {"type": "valid_id_number"},
+            {"type": "id_matches_profile"},
+            {"type": "name_matches_profile"},
+            {"type": "max_age", "params": {"max_days": 90}}
+          ]},
+          {"document_type": "academic_record", "label": "Latest academic record", "rules": [
+            {"type": "name_matches_profile"},
+            {"type": "min_number", "params": {"field": "average_percent", "minimum": 60, "label": "final average (%)"}}
+          ]},
+          {"document_type": "proof_of_income", "label": "Proof of household income", "rules": [
+            {"type": "max_age", "params": {"max_days": 90}},
+            {"type": "max_number", "params": {"field": "household_income_annual", "maximum": 350000, "label": "annual household income (R)"}}
+          ]}
+        ]
+      }
+    },
+    {
+      "id": "b1a5c0de-0000-4000-8000-000000000002",
+      "title": "Sample Provincial Bursary",
+      "funder": "Demo funder (not real)",
+      "deadline": null,
+      "study_years": [2026, 2027],
+      "faculties": ["engineering", "science"],
+      "courses": [],
+      "official_source_url": "https://example.org/sample-bursary",
+      "listing_url": null,
+      "verified": false,
+      "requirement_set": {
+        "version": "sample-bursary-2026.1",
+        "documents": [
+          {"document_type": "id_document", "label": "Certified copy of ID", "rules": [
+            {"type": "valid_id_number"},
+            {"type": "id_matches_profile"},
+            {"type": "name_matches_profile"},
+            {"type": "max_age", "params": {"max_days": 90}},
+            {"type": "not_expired"}
+          ]},
+          {"document_type": "proof_of_residence", "label": "Proof of residence", "rules": [
+            {"type": "name_matches_profile"},
+            {"type": "address_matches_profile"},
+            {"type": "max_age", "params": {"max_days": 90}}
+          ]},
+          {"document_type": "academic_record", "label": "Latest academic record", "rules": [
+            {"type": "name_matches_profile"},
+            {"type": "field_equals", "params": {"field": "academic_year", "expected": 2026, "label": "academic year"}},
+            {"type": "min_number", "params": {"field": "average_percent", "minimum": 60, "label": "final average (%)"}}
+          ]},
+          {"document_type": "proof_of_income", "label": "Proof of household income", "rules": [
+            {"type": "max_age", "params": {"max_days": 90}},
+            {"type": "max_number", "params": {"field": "household_income_annual", "maximum": 350000, "label": "annual household income (R)"}}
+          ]},
+          {"document_type": "bank_confirmation", "label": "Bank confirmation letter", "rules": [
+            {"type": "name_matches_profile"},
+            {"type": "max_age", "params": {"max_days": 90}}
+          ]}
+        ]
+      }
+    }
+  ]
+}

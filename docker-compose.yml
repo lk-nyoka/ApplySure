@@ -1,0 +1,30 @@
+# API plus ClamAV malware scanner, as they run in production.  docker compose up --build
+# The API reads backend/.env; CLAMAV_HOST is set here so uploads are always scanned.
+services:
+  clamav:
+    image: clamav/clamav:1.4
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "clamdcheck.sh"]
+      interval: 60s
+      timeout: 10s
+      start_period: 300s  # the first virus-definition download takes a few minutes
+
+  api:
+    build: ./backend
+    restart: unless-stopped
+    env_file: ./backend/.env
+    environment:
+      ENVIRONMENT: production
+      CLAMAV_HOST: clamav
+      ALLOW_UNSCANNED_UPLOADS: "false"
+    ports:
+      - "8000:8000"
+    depends_on:
+      clamav:
+        condition: service_healthy
+    volumes:
+      - bursary-data:/app/data
+
+volumes:
+  bursary-data:

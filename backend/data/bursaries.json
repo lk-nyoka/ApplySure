@@ -1,0 +1,86 @@
+{
+  "_note": "Curated bursaries: add a record here only after a person has checked it against the funder's own page, and set \"status\": \"verified\". AI-read drafts live in ingested.json; approve them with python -m app.review.",
+  "bursaries": [
+    {
+      "id": "b1a5c0de-0000-4000-8000-00000000f5a5",
+      "title": "NSFAS Bursary",
+      "funder": "National Student Financial Aid Scheme (government)",
+      "deadline": null,
+      "study_years": [
+        2027
+      ],
+      "faculties": [],
+      "courses": [],
+      "covers": [
+        "tuition",
+        "accommodation",
+        "books",
+        "meals",
+        "transport",
+        "living_allowance"
+      ],
+      "application_url": "https://my.nsfas.org.za",
+      "official_source_url": "https://www.nsfas.org.za",
+      "status": "draft",
+      "unchecked_requirements": [
+        "South African citizen",
+        "Studying, or accepted to study, a first undergraduate qualification at a public university or TVET college",
+        "SASSA grant recipients qualify on income automatically",
+        "Students with a disability: household income limit of R600 000 a year",
+        "Applications open once a year on the NSFAS portal; confirm this year's dates on nsfas.org.za"
+      ],
+      "review_notes": [
+        "Curated from NSFAS's published criteria; confirm the current year's rules and dates on nsfas.org.za."
+      ],
+      "requirement_set": {
+        "version": "nsfas-2027-draft-1",
+        "documents": [
+          {
+            "document_type": "id_document",
+            "label": "Certified copy of ID",
+            "rules": [
+              {
+                "type": "valid_id_number"
+              },
+              {
+                "type": "id_matches_profile"
+              },
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "parent_id_document",
+            "label": "Certified copy of parent or guardian ID",
+            "rules": [
+              {
+                "type": "valid_id_number"
+              }
+            ]
+          },
+          {
+            "document_type": "proof_of_income",
+            "label": "Proof of household income",
+            "rules": [
+              {
+                "type": "max_age",
+                "params": {
+                  "max_days": 90
+                }
+              },
+              {
+                "type": "max_number",
+                "params": {
+                  "field": "household_income_annual",
+                  "maximum": 350000,
+                  "label": "annual household income (R)"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
