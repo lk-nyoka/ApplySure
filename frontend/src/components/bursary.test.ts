@@ -58,8 +58,9 @@ describe('open bursaries', () => {
 })
 
 describe('sourceLink', () => {
-  it('calls a listing-site link a source, and a funder link the funder\'s site', () => {
+  it('calls an application page "Apply", a listing-site link a source, and a funder link the funder\'s site', () => {
     expect(sourceLink(make({ official_source_url: 'https://www.zabursaries.co.za/a/b/' })).label).toBe('Source')
-    expect(sourceLink(make({ official_source_url: 'https://www.zabursaries.co.za/a/', application_url: 'https://my.nsfas.org.za' }))).toEqual({ href: 'https://my.nsfas.org.za', label: "Funder's site" })
+    expect(sourceLink(make({ official_source_url: 'https://www.zabursaries.co.za/a/', application_url: 'https://my.nsfas.org.za' }))).toEqual({ href: 'https://my.nsfas.org.za', label: 'Apply' })
+    expect(sourceLink(make({ official_source_url: 'https://www.nsfas.org.za' }))).toEqual({ href: 'https://www.nsfas.org.za', label: "Funder's site" })
   })
 })

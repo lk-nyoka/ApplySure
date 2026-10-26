@@ -14,9 +14,11 @@ export const FUNDING_YEARS: [string, string][] = [thisYear, thisYear + 1, thisYe
 
 export const CLOSING_SOON_DAYS = 30
 
-/** Where to send the student, and an honest name for it: a listing site is a "Source", not the funder. */
+/** Where to send the student, and an honest name for it: an application page is "Apply" (it may be the
+ *  funder's own portal or an application platform), and a listing site is a "Source", not the funder. */
 export function sourceLink(b: Bursary): { href: string; label: string } {
-  const href = b.application_url ?? b.official_source_url
+  if (b.application_url) return { href: b.application_url, label: 'Apply' }
+  const href = b.official_source_url
   let host = ''
   try { host = new URL(href).hostname } catch { /* keep the generic label */ }
   return { href, label: host.endsWith('zabursaries.co.za') ? 'Source' : "Funder's site" }
