@@ -1,0 +1,7 @@
+# Binary files: never convert line endings (a changed byte breaks a PDF or an image).
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.woff binary
+*.woff2 binary
