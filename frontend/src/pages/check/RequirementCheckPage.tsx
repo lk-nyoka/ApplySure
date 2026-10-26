@@ -252,7 +252,24 @@ function DocumentsStep({ form, errors, checklist, setDoc }: {
     setDoc(type, { uploadId: item.id, mark: 'available' })
   }
 
-  return <ul className="upload-cards">{checklist.map(doc => {
+  // Fictional, clearly marked SAMPLE documents (frontend/public/samples) so anyone can see the document check
+  // work without uploading their own ID or results. They go through the same validation as a real file.
+  const missing = checklist.filter(doc => !uploads.some(u => u.id === form.documents[doc.documentType]?.uploadId) && SAMPLE_TYPES.has(doc.documentType))
+  async function attachSamples() {
+    for (const doc of missing) {
+      const response = await fetch(`/samples/${doc.documentType}.pdf`).catch(() => null)
+      if (!response?.ok) { setUploadErrors(e => ({ ...e, [doc.documentType]: 'The sample could not be loaded. Try again.' })); continue }
+      await upload(doc.documentType, new File([await response.blob()], `SAMPLE-${doc.documentType}.pdf`, { type: 'application/pdf' }))
+    }
+  }
+
+  return <>
+    {missing.length > 0 && <div className="sample-bar">
+      <Icon name="file" size={18} />
+      <p><strong>No documents to hand?</strong> Try the check with our sample documents. They belong to a made-up student and are marked SAMPLE.</p>
+      <button type="button" className="btn btn-secondary btn-sm" disabled={!!busy} onClick={() => void attachSamples()}>Use sample documents</button>
+    </div>}
+    <ul className="upload-cards">{checklist.map(doc => {
     const answer = form.documents[doc.documentType] ?? { note: '' }
     const attached = uploads.find(u => u.id === answer.uploadId)
     const suggestion = !attached && uploads.find(u => u.documentType === doc.documentType && u.status === 'pending')
@@ -281,7 +298,11 @@ function DocumentsStep({ form, errors, checklist, setDoc }: {
       {error && <p className="inline-error"><Icon name="alert" size={14} />{error}</p>}
     </li>
   })}</ul>
+  </>
 }
+
+const SAMPLE_TYPES = new Set(['id_document', 'parent_id_document', 'academic_record', 'proof_of_income', 'proof_of_residence',
+  'bank_confirmation', 'registration_letter', 'motivation_letter', 'cv'])
 
 function ReviewStep({ form, bursary, checklist, onEdit }: { form: CheckFormState; bursary: Bursary; checklist: ReturnType<typeof documentChecklist>; onEdit: (step: number) => void }) {
   const { basics: b, eligibility: el } = form

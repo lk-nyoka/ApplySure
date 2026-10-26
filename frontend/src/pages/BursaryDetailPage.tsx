@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { useAuth, userDetails } from '../auth/AuthProvider'
 import { documentChecklist, isEligibilityRule } from '../check/evaluate'
-import { COVERS, DeadlineChip, MatchBadge, matchReasons, SaveButton } from '../components/bursary'
+import { COVERS, DeadlineChip, MatchBadge, matchReasons, SaveButton, sourceLink } from '../components/bursary'
 import { Icon } from '../components/icons'
 import { AlertBanner, ButtonLink, Chip, EmptyState, LogoTile, SkeletonCard, SubHeader } from '../components/ui'
 import { getBursaries, getRequirements } from '../lib/api'
@@ -79,7 +79,7 @@ export function BursaryDetailPage() {
 
       <div className="sticky-actions">
         <ButtonLink to={`/check?bursary=${bursary.id}`} className="btn-block">Check my eligibility</ButtonLink>
-        <a className="btn btn-secondary btn-block" href={bursary.application_url ?? bursary.official_source_url} target="_blank" rel="noopener noreferrer">Funder's site<Icon name="external" size={16} /></a>
+        <a className="btn btn-secondary btn-block" href={sourceLink(bursary).href} target="_blank" rel="noopener noreferrer">{sourceLink(bursary).label}<Icon name="external" size={16} /></a>
       </div>
     </div>
   </div>

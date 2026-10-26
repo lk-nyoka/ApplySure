@@ -261,3 +261,43 @@ def test_supabase_url_accepts_the_rest_address_by_mistake():
     assert Settings(supabase_url=" https://abcd.supabase.co/ ").supabase_url == "https://abcd.supabase.co"
     with pytest.raises(ValueError):
         Settings(supabase_url="https://abcd.supabase.co/storage/v1/")
+
+
+def _read(*lines, document_type="academic_record"):
+    from app.services.documents.extraction import read_fields
+    return read_fields("\n".join(lines), document_type, PROFILE, TODAY)
+
+
+def test_two_different_averages_are_not_a_pass():
+    document, notes = _read("Matric final results", "Overall average: 61%", "University first semester", "Average: 75%")
+    assert document.get("average_percent") is None
+    assert "more than one average (61%, 75%)" in notes[0]
+    same, _ = _read("Average: 72%", "Your average this year: 72%")
+    assert same.get("average_percent") == 72  # the same value twice is one average
+
+
+def test_real_world_average_wordings():
+    for line in ("Average for 2026: 72%", "Avg: 72%", "Average (%) 72", "AGGREGATE 72 %"):
+        assert _read(line)[0].get("average_percent") == 72, line
+    assert _read("Average mark 2026")[0].get("average_percent") is None  # a year is not an average
+
+
+def test_real_world_income_wordings():
+    payslip, notes = _read("Basic salary R12 500", document_type="proof_of_income")
+    assert payslip.get("household_income_annual") == 150_000 and "12 times" in notes[0]
+    grant, notes = _read("SASSA Child Support Grant: R560 per month", document_type="proof_of_income")
+    assert grant.get("household_income_annual") == 6_720 and "grant" in notes[0]
+    split, _ = _read("Annual household income: R 120 000", "2026", document_type="proof_of_income")
+    assert split.get("household_income_annual") == 120_000  # the next line's number is not part of the amount
+
+
+def test_real_world_year_wordings():
+    assert _read("Grade 12 Final Results 2025")[0].get("academic_year") == 2025
+    assert _read("Results of the November 2025 examinations")[0].get("academic_year") == 2025
+
+
+def test_id_number_grouped_four_four_four_one():
+    document, _ = _read("Identity number: 8001 0150 0908 7", document_type="id_document")
+    assert document.get("id_number") == "8001015009087"
+    document, _ = _read("ID: 800101-5009-08-7", document_type="id_document")
+    assert document.get("id_number") == "8001015009087"

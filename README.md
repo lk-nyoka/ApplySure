@@ -16,7 +16,7 @@ Built by team **#RAG2Riches** for the **FNB App of the Year Hackathon 2026**, pr
 |---|---|
 | **Personalised matches** | A three-tap setup (field, funding year, course) ranks 47 open bursaries, NSFAS included. Each comes with plain reasons such as *"Funds Engineering · Funds 2027 · Mentions electrical"*, what it pays for, and a deadline countdown. |
 | **Readiness check** | A two-minute check that reports **eligibility** and **document completeness** separately, then gives one clear next step. |
-| **Document check** | Upload a PDF or a phone photo. The app reads ID numbers (checksum-validated), names, issue and expiry dates, marks and household income, and checks them against the bursary's rules. Anything unreadable becomes *needs confirmation*, never a false pass. |
+| **Document check** | Upload a PDF or a phone photo. The app reads ID numbers (checksum-validated), names, issue and expiry dates, marks and household income, and checks them against the bursary's rules. Anything unreadable or ambiguous (such as two different averages) becomes *needs confirmation*, never a false pass. No documents to hand? **Use sample documents** attaches a fictional student's set, clearly marked SAMPLE. |
 | **Your applications** | Checks, notes and saved bursaries are kept in your account. Deadlines export to your calendar with reminders a week and a day before. |
 | **Privacy built in** | Documents are read in memory and never stored. Each student can only reach their own data. *Download my data* and *Delete my account* are in the app. |
 
@@ -99,8 +99,8 @@ See **[DEPLOY.md](DEPLOY.md)**:
 ## Tests
 
 ```powershell
-cd backend;  .\.venv\Scripts\python.exe -m pytest -q     # 47 tests: rules, uploads, OCR, ingestion, API
-cd frontend; npm test; npm run build; npm run preflight    # 19 tests, plus the production build and pre-launch checks
+cd backend;  .\.venv\Scripts\python.exe -m pytest -q     # 52 tests: rules, uploads, OCR, ingestion, API
+cd frontend; npm test; npm run build; npm run preflight    # 20 tests, plus the production build and pre-launch checks
 ```
 
 CI runs all of these, plus a Docker build of the API, on every push.

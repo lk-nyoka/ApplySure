@@ -30,7 +30,7 @@ export function BursariesPage() {
   const haystack = (b: Bursary) => [b.title, b.funder, ...b.faculties, ...b.courses, ...(b.covers ?? [])].join(' ').toLowerCase().replace(/_/g, ' ')
   const visible = open.filter(b => inTab[tab](b) && (!q || haystack(b).includes(q)))
   if (tab === 'for_you') visible.sort(byMatch(profile))
-  const tabs = [['all', 'All', open.length], ['for_you', 'For you'], ['closing', 'Closing soon'], ['saved', 'Saved', saved.length]] as const
+  const tabs = [['all', 'All', open.length], ['for_you', 'For you', field ? open.filter(forYou).length : undefined], ['closing', 'Closing soon'], ['saved', 'Saved', saved.length]] as const
 
   const empty: Record<Tab, [string, string]> = {
     all: ['No bursaries match', 'Try a different word, or clear the search.'],

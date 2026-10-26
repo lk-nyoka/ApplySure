@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import { isCelebration, resultMood, splitFindings, type CheckResult, type ResultItem, type ResultMood } from '../../check/evaluate'
+import { sourceLink } from '../../components/bursary'
 import { Confetti } from '../../components/Confetti'
 import { Icon } from '../../components/icons'
 import { AlertBanner, Card, ProgressRing, Spinner, StatusChip } from '../../components/ui'
@@ -172,7 +173,7 @@ export function CheckResults({ result, requirements, saved, savedId, onSave, onR
 }) {
   return <div className="results">
     <ResultHero result={result} celebrate />
-    <NextStepsCard next={result.nextStep} cta={<a className="text-link" href={result.bursary.application_url ?? result.bursary.official_source_url} target="_blank" rel="noopener noreferrer">Funder's site <Icon name="external" size={14} /></a>} />
+    <NextStepsCard next={result.nextStep} cta={<a className="text-link" href={sourceLink(result.bursary).href} target="_blank" rel="noopener noreferrer">{sourceLink(result.bursary).label} <Icon name="external" size={14} /></a>} />
     <ResultActions result={result} saved={saved} savedId={savedId} onSave={onSave} onRestart={onRestart} />
     {result.bursary.status === 'draft' && <AlertBanner tone="warning">This bursary's requirements haven't been confirmed with the funder yet. Check them on the official source before you apply.</AlertBanner>}
     <div className="result-grid">

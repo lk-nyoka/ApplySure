@@ -139,13 +139,44 @@ def _profile_tokens_found(text: str, wanted: str, relaxed: bool = False) -> str 
     return " ".join(found) or None
 
 
+# A rand amount on one line: "12 500.00", "12,500", "350000". Never spans a line break into the next number.
+_AMOUNT = r"\d[\d ,]*(?:\.\d{2})?"
+_MONTH_NAMES = r"(?:january|february|march|april|may|june|july|august|september|october|november|december)"
+
+
+def _averages(text: str) -> set[float]:
+    """Every distinct average on the document: "Average: 72%", "Avg 72%", "Average for 2026: 72%",
+    "Average (%) 72". A year inside the label is skipped; a value needs a % sign or a (%) label."""
+    found = set()
+    for m in re.finditer(r"\b(?:overall |final )?(?:average|aggregate|avg)\b(?P<label>(?:[^\d\n]|\b20\d\d\b){0,40}?)"
+                         r"(?P<value>\d{1,3}(?:[.,]\d{1,2})?)(?![\d.,]*\d)\s*(?P<pct>%)?", text, re.I):
+        if m.group("pct") or "%" in m.group("label"):
+            value = float(m.group("value").replace(",", "."))
+            if 0 <= value <= 100:
+                found.add(value)
+    return found
+
+
+def _academic_year(text: str) -> int | None:
+    """The year results are for: "Academic year 2026", "Grade 12 Final Results 2025", "November 2025 examinations"."""
+    patterns = (
+        rf"\b{_MONTH_NAMES}\s+(20\d\d)\s+(?:final\s+)?(?:examinations?|exams?)\b",
+        r"\b(?:academic year|results(?: for)?|examinations?(?: of)?|exams?|year)\b[^\d\n]{0,15}(20\d\d)\b",
+    )
+    for pattern in patterns:
+        if m := re.search(pattern, text, re.I):
+            return int(m.group(1))
+    return None
+
+
 def read_fields(text: str, document_type: str, profile: ApplicantProfile, today: date,
                 from_ocr: bool = False) -> tuple[ExtractedDocument, list[str]]:
     notes: list[str] = []
     fields: dict = {}
     dates = _dates(text)
 
-    candidates = [re.sub(r"\s", "", m) for m in re.findall(r"(?<!\d)(\d{6}\s?\d{4}\s?\d{2}\s?\d)(?!\d)", text)]
+    # 13 digits, written solid or grouped with single spaces or dashes (6-4-2-1, 4-4-4-1, ...).
+    candidates = [re.sub(r"[ \-]", "", m) for m in re.findall(r"(?<!\d)(?<!\d[ \-])(\d(?:[ \-]?\d){12})(?![ \-]?\d)", text)]
     if candidates:
         fields["id_number"] = next((c for c in candidates if valid_sa_id(c) is None), candidates[0])
 
@@ -158,19 +189,27 @@ def read_fields(text: str, document_type: str, profile: ApplicantProfile, today:
     if expiry := _labelled(text, dates, _EXPIRY_WORDS):
         fields["expiry_date"] = max(expiry)
 
-    if m := re.search(r"(?:average|aggregate)[^0-9%\n]{0,30}(\d{1,3}(?:[.,]\d{1,2})?)\s*%", text, re.I):
-        value = float(m.group(1).replace(",", "."))
-        if 0 <= value <= 100:
-            fields["average_percent"] = value
-    if m := re.search(r"(?:academic year|results for|examinations?(?: of)?|year)\D{0,15}(20\d{2})\b", text, re.I):
-        fields["academic_year"] = int(m.group(1))
+    averages = _averages(text)
+    if len(averages) == 1:
+        fields["average_percent"] = averages.pop()
+    elif len(averages) > 1:
+        # Two different averages (e.g. a matric and a university one): picking either could pass a student
+        # who doesn't qualify, so leave it unread and ask the student to confirm.
+        shown = ", ".join(f"{v:g}%" for v in sorted(averages))
+        notes.append(f"This document shows more than one average ({shown}), so you'll be asked to confirm which one applies.")
+    if year := _academic_year(text):
+        fields["academic_year"] = year
 
-    if m := re.search(r"(?:annual|yearly|per annum|p\.a\.)[^R\d\n]{0,40}R\s?(\d[\d\s,]*(?:\.\d{2})?)", text, re.I):
+    if m := re.search(rf"(?:annual|yearly|per annum|p\.a\.)[^R\d\n]{{0,40}}R ?({_AMOUNT})", text, re.I):
         fields["household_income_annual"] = _amount(m.group(1))
-    elif m := re.search(r"(?:gross (?:pay|salary|income|earnings)|total earnings)[^R\d\n]{0,30}R\s?(\d[\d\s,]*(?:\.\d{2})?)", text, re.I):
+    elif m := re.search(rf"(?:gross (?:pay|salary|income|earnings)|total earnings|basic (?:salary|pay))[^R\d\n]{{0,30}}R ?({_AMOUNT})", text, re.I):
         if (monthly := _amount(m.group(1))) is not None:
             fields["household_income_annual"] = monthly * 12
-            notes.append("Annual income was estimated as 12 times the monthly gross pay on this payslip.")
+            notes.append("Annual income was estimated as 12 times the monthly pay on this payslip.")
+    elif m := re.search(rf"(?:sassa|grant)[^\n]{{0,60}}?R ?({_AMOUNT})[^\n]{{0,20}}?(?:per month|a month|monthly|p/m)", text, re.I):
+        if (monthly := _amount(m.group(1))) is not None:
+            fields["household_income_annual"] = monthly * 12
+            notes.append("Annual income was estimated as 12 times the monthly grant on this letter.")
 
     issue = _issue_date(text, dates, today)
     return ExtractedDocument(document_type, issue, {k: v for k, v in fields.items() if v is not None}), notes

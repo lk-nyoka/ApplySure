@@ -561,3 +561,5 @@ details.more > summary::-webkit-details-marker { display: none; }
   .landing-hero { padding-top: env(safe-area-inset-top); }
   .public-page > .public-header { padding-top: calc(1rem + env(safe-area-inset-top)); }
 }
+.sample-bar { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem .8rem; padding: .9rem 1rem; margin-bottom: 1rem; border-radius: var(--radius); background: var(--blue-tint); border: 1px dashed var(--blue); color: var(--title); }
+.sample-bar p { flex: 1 1 220px; margin: 0; font-size: .9rem; line-height: 1.45; color: var(--text); }

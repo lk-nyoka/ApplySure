@@ -1,5 +1,5 @@
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom'
-import { DeadlineChip } from '../components/bursary'
+import { DeadlineChip, sourceLink } from '../components/bursary'
 import { TextareaField } from '../components/fields'
 import { Icon } from '../components/icons'
 import { ButtonLink, EmptyState, LogoTile, ProgressBar, Segmented, SessionOnlyNote, StatusChip, SubHeader } from '../components/ui'
@@ -72,7 +72,7 @@ export function ApplicationDetailPage() {
     <div className="page-body narrow">
       <div className="bursary-strip"><LogoTile name={bursary.funder} size="sm" /><div><strong>{bursary.title}</strong><DeadlineChip deadline={bursary.deadline} /></div></div>
       <ResultHero result={check.result} />
-      <NextStepsCard next={check.result.nextStep} cta={<a className="text-link" href={bursary.application_url ?? bursary.official_source_url} target="_blank" rel="noopener noreferrer">Funder's site <Icon name="external" size={14} /></a>} />
+      <NextStepsCard next={check.result.nextStep} cta={<a className="text-link" href={sourceLink(bursary).href} target="_blank" rel="noopener noreferrer">{sourceLink(bursary).label} <Icon name="external" size={14} /></a>} />
       <EligibilityResultCard result={check.result.eligibility} />
       <CompletenessResultCard result={check.result.completeness} />
       <section className="soft-panel" aria-labelledby="linked-title">

@@ -1,22 +1,27 @@
+import { lazy, Suspense } from 'react'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import { useAuth } from './auth/AuthProvider'
 import { AppShell } from './components/AppShell'
 import { OfflineBanner } from './components/OfflineBanner'
 import { configurationError } from './lib/supabase'
-import { ApplicationDetailPage, ApplicationsPage } from './pages/ApplicationsPage'
 import { ForgotPasswordPage, ResetPasswordPage } from './pages/auth/ForgotPasswordPage'
 import { LoginPage } from './pages/auth/LoginPage'
 import { SignupPage } from './pages/auth/SignupPage'
-import { BursariesPage } from './pages/BursariesPage'
-import { BursaryDetailPage } from './pages/BursaryDetailPage'
-import { RequirementCheckPage } from './pages/check/RequirementCheckPage'
-import { DashboardPage } from './pages/DashboardPage'
-import { DocumentsPage } from './pages/DocumentsPage'
 import { InfoPage, LandingPage } from './pages/LandingPage'
-import { ProfilePage } from './pages/ProfilePage'
 import { WorkspaceProvider } from './workspace/WorkspaceProvider'
 
+// Signed-in pages load on first visit, so the landing and sign-in screens download less on mobile data.
+const ApplicationDetailPage = lazy(() => import('./pages/ApplicationsPage').then(m => ({ default: m.ApplicationDetailPage })))
+const ApplicationsPage = lazy(() => import('./pages/ApplicationsPage').then(m => ({ default: m.ApplicationsPage })))
+const BursariesPage = lazy(() => import('./pages/BursariesPage').then(m => ({ default: m.BursariesPage })))
+const BursaryDetailPage = lazy(() => import('./pages/BursaryDetailPage').then(m => ({ default: m.BursaryDetailPage })))
+const RequirementCheckPage = lazy(() => import('./pages/check/RequirementCheckPage').then(m => ({ default: m.RequirementCheckPage })))
+const DashboardPage = lazy(() => import('./pages/DashboardPage').then(m => ({ default: m.DashboardPage })))
+const DocumentsPage = lazy(() => import('./pages/DocumentsPage').then(m => ({ default: m.DocumentsPage })))
+const ProfilePage = lazy(() => import('./pages/ProfilePage').then(m => ({ default: m.ProfilePage })))
+
 const SessionLoading = () => <main className="center" role="status"><span className="spinner" />Loading your session…</main>
+const PageLoading = () => <div className="center" role="status" style={{ minHeight: "40vh" }}><span className="spinner" />Loading…</div>
 
 function Protected({ children }: { children: React.ReactNode }) {
   const { session, loading } = useAuth()
@@ -36,7 +41,7 @@ function PublicOnly({ children }: { children: React.ReactNode }) {
 
 function Pages() {
   const { session } = useAuth()
-  return <WorkspaceProvider userId={session?.user.id}><AppShell><Routes>
+  return <WorkspaceProvider userId={session?.user.id}><AppShell><Suspense fallback={<PageLoading />}><Routes>
     <Route path="/dashboard" element={<DashboardPage />} />
     <Route path="/check" element={<RequirementCheckPage />} />
     <Route path="/bursaries" element={<BursariesPage />} />
@@ -48,7 +53,7 @@ function Pages() {
     <Route path="/uploads" element={<Navigate to="/documents" replace />} />
     <Route path="/settings" element={<Navigate to="/profile" replace />} />
     <Route path="*" element={<Navigate to="/dashboard" replace />} />
-  </Routes></AppShell></WorkspaceProvider>
+  </Routes></Suspense></AppShell></WorkspaceProvider>
 }
 
 export default function App() {

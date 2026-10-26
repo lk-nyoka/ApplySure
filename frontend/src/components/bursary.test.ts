@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import type { Bursary } from '../models'
-import { byMatch, closingSoon, fitsProfile, isOpen, matchReasons } from './bursary'
+import { byMatch, closingSoon, fitsProfile, isOpen, matchReasons, sourceLink } from './bursary'
 
 const make = (over: Partial<Bursary>): Bursary => ({
   id: 'x', title: 'X', funder: 'F', deadline: null, official_source_url: 'https://example.org', status: 'draft',
@@ -54,5 +54,12 @@ describe('match wording', () => {
 describe('open bursaries', () => {
   it('says so when a bursary funds every field', () => {
     expect(matchReasons(make({ study_years: [2027] }), student)).toEqual(['Open to every field', 'Funds 2027'])
+  })
+})
+
+describe('sourceLink', () => {
+  it('calls a listing-site link a source, and a funder link the funder\'s site', () => {
+    expect(sourceLink(make({ official_source_url: 'https://www.zabursaries.co.za/a/b/' })).label).toBe('Source')
+    expect(sourceLink(make({ official_source_url: 'https://www.zabursaries.co.za/a/', application_url: 'https://my.nsfas.org.za' }))).toEqual({ href: 'https://my.nsfas.org.za', label: "Funder's site" })
   })
 })

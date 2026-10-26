@@ -14,6 +14,14 @@ export const FUNDING_YEARS: [string, string][] = [thisYear, thisYear + 1, thisYe
 
 export const CLOSING_SOON_DAYS = 30
 
+/** Where to send the student, and an honest name for it: a listing site is a "Source", not the funder. */
+export function sourceLink(b: Bursary): { href: string; label: string } {
+  const href = b.application_url ?? b.official_source_url
+  let host = ''
+  try { host = new URL(href).hostname } catch { /* keep the generic label */ }
+  return { href, label: host.endsWith('zabursaries.co.za') ? 'Source' : "Funder's site" }
+}
+
 // What a bursary pays for. Keys must match COVERS in backend/app/services/ingest/extractor.py.
 export const COVERS: Record<string, string> = {
   tuition: 'Tuition', accommodation: 'Accommodation', books: 'Books', meals: 'Meals', living_allowance: 'Allowance',

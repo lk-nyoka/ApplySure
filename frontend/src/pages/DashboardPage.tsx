@@ -54,7 +54,7 @@ export function DashboardPage() {
       <QuickSetup />
       <section className="hero-card" aria-labelledby="hero-title">
         <div>
-          <h2 id="hero-title">{bursaries.loading ? 'Finding bursaries…' : matches.length ? `${matches.length} open bursar${matches.length === 1 ? 'y matches' : 'ies match'} you` : open.length ? `${open.length} bursar${open.length === 1 ? 'y is' : 'ies are'} open now` : 'Find your bursary'}</h2>
+          <h2 id="hero-title">{bursaries.loading ? 'Finding bursaries…' : matches.length ? `${matches.length} match you · ${open.length} open` : open.length ? `${open.length} bursar${open.length === 1 ? 'y is' : 'ies are'} open now` : 'Find your bursary'}</h2>
           <p>Check if you qualify and what documents you need, in about two minutes.</p>
           <ButtonLink to="/bursaries" variant="white">View bursaries</ButtonLink>
         </div>
