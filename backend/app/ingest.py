@@ -13,7 +13,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 from .services.ingest.extractor import extract_bursary
 from .services.ingest.fetcher import ALLOWED_HOST, FetchError, PoliteFetcher, bursary_links, page_text
 from .services.ingest.llm import LLMChain, providers_from_settings
-from .services.store import BursaryStore, save_ingested
+from .services.store import _PENDING_FILE, BursaryStore, _read, save_ingested
 
 # Faculty keys the frontend offers (FACULTIES in BursariesPage.tsx) -> zabursaries listing page.
 FACULTY_PAGES = {
@@ -112,5 +112,5 @@ if __name__ == "__main__":
     parser.add_argument("--limit", type=int, default=5)
     parser.add_argument("--refresh", action="store_true", help="re-read bursaries that are already saved")
     args = parser.parse_args()
-    known = set() if args.refresh else {b.official_source_url for b in BursaryStore().list_bursaries()}
+    known = set() if args.refresh else {b.official_source_url for b in BursaryStore().list_bursaries()} | {r["official_source_url"] for r in _read(_PENDING_FILE)}
     print(f"{run(args.faculty, args.limit, IngestSettings(), closing=args.closing, skip=known)} bursaries saved")

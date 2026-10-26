@@ -120,6 +120,41 @@ class NotExpired:
         return _pass("Still valid.")
 
 
+def age_from_id_number(number: str, today: date) -> int | None:
+    """Age today from a South African ID number's YYMMDD. The century is the one that gives a plausible age."""
+    digits = re.sub(r"\D", "", number)
+    if len(digits) != 13:
+        return None
+    yy, mm, dd = int(digits[:2]), int(digits[2:4]), int(digits[4:6])
+    year = 2000 + yy if 2000 + yy <= today.year else 1900 + yy
+    try:
+        born = date(year, mm, dd)
+    except ValueError:
+        return None
+    return today.year - born.year - ((today.month, today.day) < (born.month, born.day))
+
+
+@dataclass(frozen=True)
+class AgeLimit:
+    """e.g. "between 18 and 35 years old", checked from the date of birth inside the ID number."""
+
+    min_years: int | None = None
+    max_years: int | None = None
+    key = "age_limit"
+
+    def evaluate(self, doc: ExtractedDocument, _profile: ApplicantProfile, today: date) -> Outcome:
+        number = doc.get("id_number")
+        age = age_from_id_number(str(number), today) if number else None
+        if age is None:
+            return _unreadable("a date of birth (from the ID number)")
+        if self.min_years is not None and age < self.min_years:
+            return _fail(f"You are {age}; applicants must be at least {self.min_years}.", "You may not meet this requirement; check other bursaries.")
+        if self.max_years is not None and age > self.max_years:
+            return _fail(f"You are {age}; applicants must be {self.max_years} or younger.", "You may not meet this requirement; check other bursaries.")
+        limits = " to ".join(str(v) for v in (self.min_years, self.max_years) if v is not None)
+        return _pass(f"You are {age}, within the age limit ({limits}).")
+
+
 @dataclass(frozen=True)
 class ValidIdNumber:
     key = "valid_id_number"

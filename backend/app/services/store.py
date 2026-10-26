@@ -10,6 +10,8 @@ from .requirements import RequirementSet, requirement_set_from_spec
 _DATA_DIR = Path(__file__).resolve().parents[2] / "data"
 _SEED_FILE = _DATA_DIR / "bursaries.json"
 _INGESTED_FILE = _DATA_DIR / "ingested.json"
+# New AI-read drafts wait here, unseen by the app, until a person approves them (python -m app.review).
+_PENDING_FILE = _DATA_DIR / "pending.json"
 _BURSARY_FIELDS = tuple(Bursary.model_fields)
 
 
@@ -65,8 +67,8 @@ class BursaryStore:
         return self._requirements.get(bursary_id)
 
 
-def save_ingested(record: dict, path: Path = _INGESTED_FILE) -> None:
-    """Add or replace one AI-read draft. Validates it first so a bad record never reaches the file."""
+def save_ingested(record: dict, path: Path = _PENDING_FILE) -> None:
+    """Add or replace one AI-read draft (by default in the review queue). Validates it first so a bad record never reaches the file."""
     requirement_set_from_spec(record["requirement_set"], record["official_source_url"])
     Bursary(**{k: record[k] for k in _BURSARY_FIELDS if k in record})
     records = {r["id"]: r for r in _read(path)}

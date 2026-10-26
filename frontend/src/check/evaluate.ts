@@ -64,6 +64,8 @@ export function describeCondition(req: RequirementSummary): string | null {
     case 'max_age': return `Dated or certified within the last ${p.max_days} days`
     case 'not_expired': return 'Still valid (not expired)'
     case 'valid_id_number': return 'Shows a valid 13-digit South African ID number'
+    case 'age_limit': return p.min_years && p.max_years ? `You must be ${p.min_years} to ${p.max_years} years old (checked from your ID number)`
+      : p.max_years ? `You must be ${p.max_years} or younger (checked from your ID number)` : `You must be at least ${p.min_years} (checked from your ID number)`
     case 'id_matches_profile': return 'ID number matches the one you give the funder'
     case 'name_matches_profile': return 'In your own name, spelled as on your application'
     case 'address_matches_profile': return 'Address matches the one on your application'

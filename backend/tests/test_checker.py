@@ -156,3 +156,17 @@ def test_bursary_endpoints():
         assert client.get(f"/api/checks/sample?bursary_id={uuid4()}").status_code == 404
     finally:
         app.dependency_overrides.clear()
+
+
+def test_age_limit_is_checked_from_the_id_number():
+    from app.services.rules import AgeLimit, age_from_id_number
+
+    today = date(2026, 10, 26)
+    assert age_from_id_number("8001015009087", today) == 46
+    assert age_from_id_number("0501015009084", today) == 21  # 2005, not 1905
+    doc = lambda n: ExtractedDocument("id_document", None, {"id_number": n})
+    assert AgeLimit(18, 35).evaluate(doc("0501015009084"), PROFILE, today).result == S.passed
+    assert AgeLimit(max_years=35).evaluate(doc("8001015009087"), PROFILE, today).result == S.failed
+    assert AgeLimit(18, 35).evaluate(ExtractedDocument("id_document"), PROFILE, today).result == S.needs_confirmation
+    spec = {"version": "v", "documents": [{"document_type": "id_document", "label": "ID", "rules": [{"type": "age_limit", "params": {"min_years": 18, "max_years": 35}}]}]}
+    assert requirement_set_from_spec(spec, None).requirements[1].rule_key == "age_limit"

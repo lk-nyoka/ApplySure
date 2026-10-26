@@ -1,0 +1,1556 @@
+{
+  "bursaries": [
+    {
+      "id": "7d065e96-158e-55fa-8978-0ee476e756da",
+      "title": "Siemens Bursary",
+      "funder": "Siemens",
+      "deadline": null,
+      "study_years": [
+        2027
+      ],
+      "faculties": [
+        "engineering",
+        "information_technology"
+      ],
+      "courses": [
+        "bsc / beng electrical engineering (heavy and light current)",
+        "bsc / beng electronic engineering",
+        "bachelor of engineering: technology",
+        "beng electrical and electronic engineering (mechatronics)",
+        "bachelor in computer science and information technology"
+      ],
+      "application_url": null,
+      "official_source_url": "https://www.zabursaries.co.za/engineering-bursaries-south-africa/siemens-bursary/",
+      "listing_url": "https://www.zabursaries.co.za/bursaries-closing-in-november-2026/",
+      "status": "draft",
+      "covers": [],
+      "unchecked_requirements": [
+        "Must be a South African citizen",
+        "Must be from a disadvantaged background",
+        "Must not be receiving any other funding (including bursary or NSFAS)",
+        "Current Matric students: must be between 18 and 25 years old",
+        "Current Matric students: must be unemployed",
+        "Current Matric students: must be currently in Matric",
+        "Current Matric students: must have achieved a minimum of level 6 for English",
+        "Current Matric students: must have achieved a minimum of level 6 for Pure Mathematics",
+        "Current Matric students: must have achieved a minimum of level 6 for Physical Science",
+        "Current Matric students: must intend to study full-time towards one of the listed qualifications in 2027",
+        "Current Matric students: must be accepted to study at a recognised and accredited tertiary institution in South Africa",
+        "Current University students: must have completed Matric",
+        "Current University students: must have achieved a minimum overall average of 65% for the 2026 academic year",
+        "Current University students: must be studying full-time towards one of the listed qualifications",
+        "Current University students: must be studying at a recognised and accredited tertiary institution in South Africa"
+      ],
+      "review_notes": [
+        "Standard checks added: id matches profile, name matches profile, valid id number."
+      ],
+      "requirement_set": {
+        "version": "zab-ca31c513",
+        "documents": [
+          {
+            "document_type": "id_document",
+            "label": "Certified copy of ID",
+            "rules": [
+              {
+                "type": "valid_id_number"
+              },
+              {
+                "type": "id_matches_profile"
+              },
+              {
+                "type": "name_matches_profile"
+              },
+              {
+                "type": "age_limit",
+                "params": {
+                  "min_years": 18,
+                  "max_years": 25
+                }
+              }
+            ]
+          },
+          {
+            "document_type": "academic_record",
+            "label": "Latest academic record",
+            "rules": [
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "registration_letter",
+            "label": "Proof of registration or acceptance",
+            "rules": [
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "cv",
+            "label": "Curriculum vitae",
+            "rules": []
+          },
+          {
+            "document_type": "motivation_letter",
+            "label": "Motivation letter",
+            "rules": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "5d790651-8a9e-52bb-add9-448d17044760",
+      "title": "MINDS Scholarship",
+      "funder": "Mandela Institute for Development Studies (MINDS)",
+      "deadline": null,
+      "study_years": [
+        2027
+      ],
+      "faculties": [
+        "commerce",
+        "education",
+        "engineering",
+        "health_sciences",
+        "humanities",
+        "information_technology",
+        "law",
+        "science"
+      ],
+      "courses": [
+        "any field"
+      ],
+      "application_url": null,
+      "official_source_url": "https://www.zabursaries.co.za/mba-postgraduate/minds-scholarship/",
+      "listing_url": "https://www.zabursaries.co.za/bursaries-closing-in-november-2026/",
+      "status": "draft",
+      "covers": [
+        "accommodation",
+        "living_allowance",
+        "transport",
+        "tuition"
+      ],
+      "unchecked_requirements": [
+        "Must be a national of any African country",
+        "Must reside in any African country",
+        "Must be between 18 and 45 years old",
+        "Must have been accepted to study at an approved institution outside their country of citizenship and country of residence",
+        "Must be accepted for a full-time postgraduate Honours or Master's degree for the upcoming academic year",
+        "Must have achieved a minimum result of 70% for each subject or course within the last 2 years of completed studies",
+        "Must have evidence of demonstrated leadership abilities or potential",
+        "Must study outside of their country of citizenship and their country of residence"
+      ],
+      "review_notes": [
+        "Standard checks added: id matches profile, name matches profile, valid id number."
+      ],
+      "requirement_set": {
+        "version": "zab-e03c5f62",
+        "documents": [
+          {
+            "document_type": "id_document",
+            "label": "Certified copy of ID",
+            "rules": [
+              {
+                "type": "not_expired"
+              },
+              {
+                "type": "valid_id_number"
+              },
+              {
+                "type": "id_matches_profile"
+              },
+              {
+                "type": "name_matches_profile"
+              },
+              {
+                "type": "age_limit",
+                "params": {
+                  "min_years": 18,
+                  "max_years": 45
+                }
+              }
+            ]
+          },
+          {
+            "document_type": "academic_record",
+            "label": "Latest academic record",
+            "rules": [
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "registration_letter",
+            "label": "Proof of registration or acceptance",
+            "rules": [
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "cv",
+            "label": "Curriculum vitae",
+            "rules": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "f3058270-5b7b-5e88-b663-97538dd83ab5",
+      "title": "SACAP Bursary",
+      "funder": "South African Council for the Architectural Profession (SACAP)",
+      "deadline": "2026-12-04",
+      "study_years": [
+        2027
+      ],
+      "faculties": [
+        "engineering"
+      ],
+      "courses": [
+        "architecture"
+      ],
+      "application_url": null,
+      "official_source_url": "https://www.zabursaries.co.za/construction-and-built-environment-bursaries-south-africa/south-african-council-for-the-architectural-profession-sacap-bursary/",
+      "listing_url": "https://www.zabursaries.co.za/bursaries-closing-in-december-2026/",
+      "status": "draft",
+      "covers": [],
+      "unchecked_requirements": [
+        "Must be a South African citizen",
+        "Must have completed Matric",
+        "Must be studying towards an Architecture qualification",
+        "Must be entering 2nd or later year of study (up to Honours) in 2027",
+        "Must be studying at an accredited Architectural Learning institution in South Africa",
+        "Total household income not more than R350,000 per annum (students without a disability)",
+        "Total household income not more than R600,000 per annum (students with a disability)",
+        "Preference will be given to candidates from designated groups"
+      ],
+      "review_notes": [
+        "Standard checks added: id matches profile, name matches profile, valid id number."
+      ],
+      "requirement_set": {
+        "version": "zab-9b494e82",
+        "documents": [
+          {
+            "document_type": "id_document",
+            "label": "Certified copy of ID",
+            "rules": [
+              {
+                "type": "valid_id_number"
+              },
+              {
+                "type": "id_matches_profile"
+              },
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "academic_record",
+            "label": "Latest academic record",
+            "rules": [
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "motivation_letter",
+            "label": "Motivation letter",
+            "rules": []
+          },
+          {
+            "document_type": "proof_of_income",
+            "label": "Proof of household income",
+            "rules": []
+          },
+          {
+            "document_type": "bank_confirmation",
+            "label": "Bank confirmation letter",
+            "rules": [
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "4884d02d-b952-578e-8f2f-a141bbe714dc",
+      "title": "SANZAF Zakah Bursary",
+      "funder": "South African National Zakah Fund (SANZAF)",
+      "deadline": null,
+      "study_years": [
+        2027
+      ],
+      "faculties": [
+        "commerce",
+        "education",
+        "engineering",
+        "health_sciences",
+        "humanities",
+        "information_technology",
+        "law",
+        "science"
+      ],
+      "courses": [],
+      "application_url": null,
+      "official_source_url": "https://www.zabursaries.co.za/general-bursaries-south-africa/sanzaf-zakah-bursary/",
+      "listing_url": "https://www.zabursaries.co.za/bursaries-closing-in-december-2026/",
+      "status": "draft",
+      "covers": [
+        "tuition"
+      ],
+      "unchecked_requirements": [
+        "Must be in financial need and unable to pay for tertiary studies",
+        "Must fall into one of the categories: the poor, the needy, or individuals in debt",
+        "Applicants who refuse reasonable available employment opportunities are generally excluded"
+      ],
+      "review_notes": [
+        "Standard checks added: id matches profile, name matches profile, valid id number."
+      ],
+      "requirement_set": {
+        "version": "zab-751823b0",
+        "documents": [
+          {
+            "document_type": "id_document",
+            "label": "Certified copy of ID",
+            "rules": [
+              {
+                "type": "valid_id_number"
+              },
+              {
+                "type": "id_matches_profile"
+              },
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "proof_of_income",
+            "label": "Proof of household income",
+            "rules": []
+          },
+          {
+            "document_type": "motivation_letter",
+            "label": "Motivation letter",
+            "rules": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "6fd2abad-b824-5cb3-ba26-8005b45caa62",
+      "title": "Clicks Foundation Bursary",
+      "funder": "Clicks Foundation",
+      "deadline": "2026-12-31",
+      "study_years": [
+        2027
+      ],
+      "faculties": [
+        "information_technology",
+        "science"
+      ],
+      "courses": [
+        "computer science",
+        "information technology"
+      ],
+      "application_url": null,
+      "official_source_url": "https://www.zabursaries.co.za/medical-bursaries-south-africa/clicks-pharmacy-bursary/",
+      "listing_url": "https://www.zabursaries.co.za/bursaries-closing-in-december-2026/",
+      "status": "draft",
+      "covers": [
+        "books",
+        "tuition"
+      ],
+      "unchecked_requirements": [
+        "South African citizenship",
+        "Age between 19 and 35 years",
+        "Completed Matric",
+        "Studying towards an undergraduate qualification in Computer Science or Information Technology",
+        "Entering 2nd or 3rd year of study",
+        "Studying at a recognised and accredited university in the Western Cape",
+        "Not currently receiving any other bursary awards"
+      ],
+      "review_notes": [
+        "Standard checks added: id matches profile, name matches profile, valid id number."
+      ],
+      "requirement_set": {
+        "version": "zab-d145cd83",
+        "documents": [
+          {
+            "document_type": "id_document",
+            "label": "Certified copy of ID",
+            "rules": [
+              {
+                "type": "valid_id_number"
+              },
+              {
+                "type": "id_matches_profile"
+              },
+              {
+                "type": "name_matches_profile"
+              },
+              {
+                "type": "age_limit",
+                "params": {
+                  "min_years": 19,
+                  "max_years": 35
+                }
+              }
+            ]
+          },
+          {
+            "document_type": "academic_record",
+            "label": "Latest academic record",
+            "rules": [
+              {
+                "type": "min_number",
+                "params": {
+                  "field": "average_percent",
+                  "minimum": 60,
+                  "label": "final average (%)"
+                }
+              },
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "registration_letter",
+            "label": "Proof of registration or acceptance",
+            "rules": [
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "1eba1258-f11d-538d-9d07-71e4a69babe4",
+      "title": "Subtrop SAAGA Bursary",
+      "funder": "South African Avocado Growers\u2019 Association (SAAGA)",
+      "deadline": "2026-10-31",
+      "study_years": [
+        2027
+      ],
+      "faculties": [],
+      "courses": [
+        "bsc agriculture",
+        "horticultural science",
+        "agricultural economics",
+        "agribusiness"
+      ],
+      "application_url": null,
+      "official_source_url": "https://www.zabursaries.co.za/science-bursaries-south-africa/subtrop-saaga-bursary/",
+      "listing_url": "https://www.zabursaries.co.za/bursaries-closing-in-october-2026/",
+      "status": "draft",
+      "covers": [],
+      "unchecked_requirements": [
+        "Must be a student of colour",
+        "Must have completed Matric",
+        "Must be studying towards an Undergraduate or Postgraduate Agriculture or equivalent degree qualification",
+        "Must be studying at a recognised and accredited tertiary institution within South Africa",
+        "Must read and agree to all terms stated on the application form"
+      ],
+      "review_notes": [
+        "Standard checks added: id matches profile, name matches profile, valid id number."
+      ],
+      "requirement_set": {
+        "version": "zab-173b71e5",
+        "documents": [
+          {
+            "document_type": "id_document",
+            "label": "Certified copy of ID",
+            "rules": [
+              {
+                "type": "valid_id_number"
+              },
+              {
+                "type": "id_matches_profile"
+              },
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "academic_record",
+            "label": "Latest academic record",
+            "rules": [
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "motivation_letter",
+            "label": "Motivation letter",
+            "rules": []
+          },
+          {
+            "document_type": "cv",
+            "label": "Curriculum vitae",
+            "rules": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "a43bef9c-77c6-5243-8c2e-f64053fe2cb2",
+      "title": "Subtrop Lindsey Milne Bursary",
+      "funder": "Subtrop (South African Subtropical Growers\u2019 Association)",
+      "deadline": "2026-10-31",
+      "study_years": [
+        2027
+      ],
+      "faculties": [],
+      "courses": [
+        "bsc agriculture",
+        "agricultural economics",
+        "horticultural science"
+      ],
+      "application_url": null,
+      "official_source_url": "https://www.zabursaries.co.za/science-bursaries-south-africa/subtrop-lindsey-milne-bursary/",
+      "listing_url": "https://www.zabursaries.co.za/bursaries-closing-in-october-2026/",
+      "status": "draft",
+      "covers": [],
+      "unchecked_requirements": [
+        "Must have completed Matric",
+        "Must be studying towards a BSc Agriculture degree majoring in Horticultural Science or Agricultural Economics",
+        "Must be studying at a recognised and accredited tertiary institution within South Africa",
+        "Must intend on pursuing a career within the subtropical fruit industry in South Africa",
+        "Must read and agree to all of the terms stated on the application form"
+      ],
+      "review_notes": [
+        "Standard checks added: id matches profile, name matches profile, valid id number."
+      ],
+      "requirement_set": {
+        "version": "zab-173b71e5",
+        "documents": [
+          {
+            "document_type": "id_document",
+            "label": "Certified copy of ID",
+            "rules": [
+              {
+                "type": "valid_id_number"
+              },
+              {
+                "type": "id_matches_profile"
+              },
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "academic_record",
+            "label": "Latest academic record",
+            "rules": [
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "motivation_letter",
+            "label": "Motivation letter",
+            "rules": []
+          },
+          {
+            "document_type": "cv",
+            "label": "Curriculum vitae",
+            "rules": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "2fe39d6e-65e7-554a-a75d-8cac9611a96a",
+      "title": "Spirit Education Foundation High School Scholarship",
+      "funder": "Spirit Education Foundation Trust",
+      "deadline": "2026-10-31",
+      "study_years": [
+        2028
+      ],
+      "faculties": [],
+      "courses": [
+        "high school"
+      ],
+      "application_url": null,
+      "official_source_url": "https://www.zabursaries.co.za/general-bursaries-south-africa/spirit-education-foundation-trust-high-school-scholarship/",
+      "listing_url": "https://www.zabursaries.co.za/bursaries-closing-in-october-2026/",
+      "status": "draft",
+      "covers": [
+        "tuition"
+      ],
+      "unchecked_requirements": [
+        "South African citizenship",
+        "female gender",
+        "currently in Grade 6 in 2026",
+        "entering Grade 8 in 2028",
+        "minimum code 6 for Mathematics, English Home Language and Natural Science",
+        "intention to apply to and attend Cape Academy of Mathematics, Science and Technology",
+        "reside near or able to travel to Constantia, Cape Town daily",
+        "strong academic ability",
+        "interest in pursuing STEM studies and career after high school",
+        "gross family household income not more than R20,000 per month",
+        "economically disadvantaged background",
+        "agreement to Spirit Education Foundation Code of Conduct",
+        "agreement to Spirit Education Foundation Parent Agreement"
+      ],
+      "review_notes": [
+        "Standard checks added: address matches profile, id matches profile, income limit, name matches profile, valid id number."
+      ],
+      "requirement_set": {
+        "version": "zab-a46c453c",
+        "documents": [
+          {
+            "document_type": "id_document",
+            "label": "Certified copy of ID",
+            "rules": [
+              {
+                "type": "valid_id_number"
+              },
+              {
+                "type": "id_matches_profile"
+              },
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "parent_id_document",
+            "label": "Certified copy of parent or guardian ID",
+            "rules": [
+              {
+                "type": "valid_id_number"
+              }
+            ]
+          },
+          {
+            "document_type": "academic_record",
+            "label": "Latest academic record",
+            "rules": [
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "proof_of_residence",
+            "label": "Proof of residence",
+            "rules": [
+              {
+                "type": "name_matches_profile"
+              },
+              {
+                "type": "address_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "proof_of_income",
+            "label": "Proof of household income",
+            "rules": [
+              {
+                "type": "max_number",
+                "params": {
+                  "field": "household_income_annual",
+                  "maximum": 240000,
+                  "label": "annual household income (R)"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "0a9705be-5309-5e86-8a65-073b9c94e083",
+      "title": "South African Geomatics Council (SAGC) Bursary",
+      "funder": "South African Geomatics Council (SAGC)",
+      "deadline": "2026-10-31",
+      "study_years": [
+        2027
+      ],
+      "faculties": [],
+      "courses": [
+        "diploma in geomatics (es)",
+        "bachelor of geomatics (es)",
+        "diploma in geomatics (gisc)",
+        "bachelor of geomatics (gisc)",
+        "bachelor of the built environment (bbe) in geomatics (es)",
+        "diploma in gis & technology",
+        "diploma in surveying",
+        "bsc geoinformatics",
+        "bsc (hons) geoinformatics",
+        "advanced diploma in geomatics (es)",
+        "bsc geomatics specialisation in ls",
+        "bsc geomatics specialisation in es",
+        "bsc geomatics + cat a ihs",
+        "bsc geomatics specialisation in ps",
+        "bsc in surveying",
+        "bsc in surveying (es)",
+        "bsc in surveying + cat a ihs",
+        "bsc in surveying (ps)",
+        "national diploma: mine surveying",
+        "btech: mineral resourse mgmt"
+      ],
+      "application_url": null,
+      "official_source_url": "https://www.zabursaries.co.za/construction-and-built-environment-bursaries-south-africa/south-african-council-for-professional-and-technical-surveyors-bursary/",
+      "listing_url": "https://www.zabursaries.co.za/bursaries-closing-in-october-2026/",
+      "status": "draft",
+      "covers": [],
+      "unchecked_requirements": [
+        "Must be a South African citizen",
+        "Must be currently in Matric or have completed Matric",
+        "Must be studying full-time towards one of the listed qualifications",
+        "Must be enrolled at one of the listed SAGC-approved institutions",
+        "Must have a strong academic record",
+        "Must have proven financial need",
+        "Must be hardworking",
+        "Must read and agree to the terms and conditions of the bursary"
+      ],
+      "review_notes": [
+        "Standard checks added: id matches profile, name matches profile, valid id number."
+      ],
+      "requirement_set": {
+        "version": "zab-0528db38",
+        "documents": [
+          {
+            "document_type": "id_document",
+            "label": "Certified copy of ID",
+            "rules": [
+              {
+                "type": "valid_id_number"
+              },
+              {
+                "type": "id_matches_profile"
+              },
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "academic_record",
+            "label": "Latest academic record",
+            "rules": [
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "registration_letter",
+            "label": "Proof of registration or acceptance",
+            "rules": [
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "proof_of_income",
+            "label": "Proof of household income",
+            "rules": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "ce6d582e-2892-5258-baac-6ecc189a3307",
+      "title": "South32 HMM Bursary",
+      "funder": "South32",
+      "deadline": "2026-10-31",
+      "study_years": [
+        2027
+      ],
+      "faculties": [
+        "commerce",
+        "education",
+        "engineering",
+        "health_sciences",
+        "humanities",
+        "information_technology"
+      ],
+      "courses": [
+        "civil engineering",
+        "electrical engineering",
+        "mechanical engineering",
+        "mining engineering",
+        "mine surveying",
+        "rock engineering",
+        "business administration",
+        "education & training",
+        "health, safety & environment",
+        "health sciences",
+        "information technology",
+        "management",
+        "philosophy",
+        "social sciences"
+      ],
+      "application_url": null,
+      "official_source_url": "https://www.zabursaries.co.za/general-bursaries-south-africa/south32-hmm-bursary/",
+      "listing_url": "https://www.zabursaries.co.za/bursaries-closing-in-october-2026/",
+      "status": "draft",
+      "covers": [],
+      "unchecked_requirements": [
+        "South African citizen",
+        "Reside within the John Taolo Gaetsewe District Municipal area (Northern Cape) or be a child of an HMM employee",
+        "Currently in Matric or have completed Matric",
+        "Studying or intending to study full-time towards a Degree or Diploma qualification",
+        "Studying or registered to study at a recognised and accredited tertiary institution in South Africa",
+        "Field of study must be one of the listed fields"
+      ],
+      "review_notes": [
+        "Standard checks added: address matches profile, id matches profile, name matches profile, valid id number."
+      ],
+      "requirement_set": {
+        "version": "zab-344bac74",
+        "documents": [
+          {
+            "document_type": "id_document",
+            "label": "Certified copy of ID",
+            "rules": [
+              {
+                "type": "valid_id_number"
+              },
+              {
+                "type": "id_matches_profile"
+              },
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "academic_record",
+            "label": "Latest academic record",
+            "rules": [
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "registration_letter",
+            "label": "Proof of registration or acceptance",
+            "rules": [
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "proof_of_residence",
+            "label": "Proof of residence",
+            "rules": [
+              {
+                "type": "name_matches_profile"
+              },
+              {
+                "type": "address_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "parent_id_document",
+            "label": "Certified copy of parent or guardian ID",
+            "rules": [
+              {
+                "type": "valid_id_number"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "36d43104-9b55-51b9-92f0-03c58032d62a",
+      "title": "Soil Science Society of South Africa Bursary",
+      "funder": "Soil Science Society of South Africa",
+      "deadline": "2026-10-31",
+      "study_years": [
+        2027
+      ],
+      "faculties": [
+        "science"
+      ],
+      "courses": [
+        "soil biology",
+        "soil chemistry",
+        "soil fertility",
+        "soil genesis, classification and mapping",
+        "soil mineralogy",
+        "soil physics",
+        "soil technology",
+        "soil science-related field"
+      ],
+      "application_url": null,
+      "official_source_url": "https://www.zabursaries.co.za/science-bursaries-south-africa/soil-science-society-of-south-africa-bursary/",
+      "listing_url": "https://www.zabursaries.co.za/bursaries-closing-in-october-2026/",
+      "status": "draft",
+      "covers": [],
+      "unchecked_requirements": [
+        "South African citizen or permanent resident in South Africa",
+        "Studying full-time towards a Soil Science-related field of study",
+        "Entering final year of undergraduate study or postgraduate degree studies",
+        "Studying at a recognised University in South Africa"
+      ],
+      "review_notes": [
+        "Standard checks added: id matches profile, name matches profile, valid id number."
+      ],
+      "requirement_set": {
+        "version": "zab-3a7fafc7",
+        "documents": [
+          {
+            "document_type": "id_document",
+            "label": "Certified copy of ID",
+            "rules": [
+              {
+                "type": "valid_id_number"
+              },
+              {
+                "type": "id_matches_profile"
+              },
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "academic_record",
+            "label": "Latest academic record",
+            "rules": [
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "registration_letter",
+            "label": "Proof of registration or acceptance",
+            "rules": [
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "motivation_letter",
+            "label": "Motivation letter",
+            "rules": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "d5a42b31-45df-5ee6-9d1f-8e8e45ba9413",
+      "title": "Sibona Ilanga Trust Bursary",
+      "funder": "Sibona Ilanga Trust",
+      "deadline": "2026-10-31",
+      "study_years": [
+        2027
+      ],
+      "faculties": [],
+      "courses": [
+        "any field"
+      ],
+      "application_url": null,
+      "official_source_url": "https://www.zabursaries.co.za/general-bursaries-south-africa/sibona-ilanga-trust-bursary/",
+      "listing_url": "https://www.zabursaries.co.za/bursaries-closing-in-october-2026/",
+      "status": "draft",
+      "covers": [
+        "accommodation",
+        "books",
+        "meals",
+        "tuition"
+      ],
+      "unchecked_requirements": [
+        "South African citizenship",
+        "reside within 50km radius of the De Aar Solar Power plant in the Northern Cape",
+        "studying or intending to study towards a qualification in any field",
+        "accepted to study at a recognised public or private tertiary institution in South Africa",
+        "financial need and insufficient financial resources to continue with tertiary education",
+        "selection based on academic performance and financial need"
+      ],
+      "review_notes": [
+        "Standard checks added: address matches profile, id matches profile, name matches profile, valid id number."
+      ],
+      "requirement_set": {
+        "version": "zab-21c6b6d5",
+        "documents": [
+          {
+            "document_type": "id_document",
+            "label": "Certified copy of ID",
+            "rules": [
+              {
+                "type": "valid_id_number"
+              },
+              {
+                "type": "id_matches_profile"
+              },
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "registration_letter",
+            "label": "Proof of registration or acceptance",
+            "rules": [
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "proof_of_residence",
+            "label": "Proof of residence",
+            "rules": [
+              {
+                "type": "name_matches_profile"
+              },
+              {
+                "type": "address_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "proof_of_income",
+            "label": "Proof of household income",
+            "rules": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "71300089-900d-5903-9717-c6d72cb69b12",
+      "title": "Musina Makhado Special Economic Zone (MMSEZ) Bursary",
+      "funder": "Musina Makhado Special Economic Zone (MMSEZ)",
+      "deadline": "2026-10-31",
+      "study_years": [
+        2027
+      ],
+      "faculties": [
+        "engineering"
+      ],
+      "courses": [
+        "civil engineering",
+        "chemical engineering",
+        "electrical engineering",
+        "industrial engineering",
+        "mechanical engineering",
+        "mechatronics engineering"
+      ],
+      "application_url": null,
+      "official_source_url": "https://www.zabursaries.co.za/engineering-bursaries-south-africa/musina-makhado-special-economic-zone-mmsez-bursary/",
+      "listing_url": "https://www.zabursaries.co.za/bursaries-closing-in-october-2026/",
+      "status": "draft",
+      "covers": [],
+      "unchecked_requirements": [
+        "Must be a South African citizen",
+        "Must reside within Limpopo province",
+        "Must be currently in Matric or have completed Matric",
+        "Must be studying or intend to study full-time towards one of the listed Engineering degrees",
+        "Must have a minimum overall average of 70% or level 6/7 marks for Pure Mathematics (not Mathematical Literacy)",
+        "Must have a minimum overall average of 70% or level 6/7 marks for Pure Physical Science",
+        "Current Matric students must have a minimum overall average of 70% in Grade 11 final results or Matric mid-year results",
+        "Must be studying, accepted, or registered at a public university in South Africa accredited by ECSA",
+        "Must be in financial need"
+      ],
+      "review_notes": [
+        "academic_record: ignored unsupported rule 'max_age'",
+        "academic_record: ignored unsupported rule 'max_age'",
+        "Standard checks added: address matches profile, id matches profile, name matches profile, valid id number."
+      ],
+      "requirement_set": {
+        "version": "zab-8bf30244",
+        "documents": [
+          {
+            "document_type": "id_document",
+            "label": "Certified copy of ID",
+            "rules": [
+              {
+                "type": "max_age",
+                "params": {
+                  "max_days": 90
+                }
+              },
+              {
+                "type": "valid_id_number"
+              },
+              {
+                "type": "id_matches_profile"
+              },
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "academic_record",
+            "label": "Latest academic record",
+            "rules": [
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "registration_letter",
+            "label": "Proof of registration or acceptance",
+            "rules": [
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "proof_of_income",
+            "label": "Proof of household income",
+            "rules": []
+          },
+          {
+            "document_type": "proof_of_residence",
+            "label": "Proof of residence",
+            "rules": [
+              {
+                "type": "name_matches_profile"
+              },
+              {
+                "type": "address_matches_profile"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "2dc8f97b-2116-5acf-bfb3-096d4e92750b",
+      "title": "Mulilo Bursary",
+      "funder": "Mulilo",
+      "deadline": "2026-10-31",
+      "study_years": [
+        2027
+      ],
+      "faculties": [],
+      "courses": [],
+      "application_url": null,
+      "official_source_url": "https://www.zabursaries.co.za/general-bursaries-south-africa/mulilo-bursary/",
+      "listing_url": "https://www.zabursaries.co.za/bursaries-closing-in-october-2026/",
+      "status": "draft",
+      "covers": [
+        "accommodation",
+        "books",
+        "living_allowance",
+        "tuition"
+      ],
+      "unchecked_requirements": [
+        "South African citizen",
+        "Permanently reside in Northern Cape province in Emthanjeni, Renosterberg or Siyathemba municipality",
+        "Currently in Matric or have completed Matric",
+        "Studying or intending to study towards a qualification in any field",
+        "Studying or have applied to study at a recognised and accredited tertiary or trade institution in South Africa"
+      ],
+      "review_notes": [
+        "Standard checks added: address matches profile, id matches profile, name matches profile, valid id number."
+      ],
+      "requirement_set": {
+        "version": "zab-ac986977",
+        "documents": [
+          {
+            "document_type": "id_document",
+            "label": "Certified copy of ID",
+            "rules": [
+              {
+                "type": "valid_id_number"
+              },
+              {
+                "type": "id_matches_profile"
+              },
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "academic_record",
+            "label": "Latest academic record",
+            "rules": [
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "proof_of_residence",
+            "label": "Proof of residence",
+            "rules": [
+              {
+                "type": "name_matches_profile"
+              },
+              {
+                "type": "address_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "proof_of_income",
+            "label": "Proof of household income",
+            "rules": []
+          },
+          {
+            "document_type": "registration_letter",
+            "label": "Proof of registration or acceptance",
+            "rules": [
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "d52595bc-b406-5cd5-ba76-dcce2f17743f",
+      "title": "Mohau Capital Bursary",
+      "funder": "Mohau Capital",
+      "deadline": "2026-10-31",
+      "study_years": [
+        2027
+      ],
+      "faculties": [
+        "commerce",
+        "science"
+      ],
+      "courses": [
+        "accounting science",
+        "applied mathematics",
+        "investment banking or related finance qualification"
+      ],
+      "application_url": null,
+      "official_source_url": "https://www.zabursaries.co.za/accounting-bursaries-south-africa/mohau-capital-bursary/",
+      "listing_url": "https://www.zabursaries.co.za/bursaries-closing-in-october-2026/",
+      "status": "draft",
+      "covers": [],
+      "unchecked_requirements": [
+        "South African citizen",
+        "Black (male or female)",
+        "from a previously disadvantaged background",
+        "studying towards a qualification in Accounting Science, Applied Mathematics, Investment Banking or related Finance",
+        "enrolled in 2nd or higher year of study",
+        "strong academic record",
+        "minimum B average (70% or above)",
+        "demonstrate commitment to academic excellence",
+        "leadership potential",
+        "desire to contribute positively to South Africa\u2019s economic development"
+      ],
+      "review_notes": [
+        "Standard checks added: address matches profile, id matches profile, minimum average, name matches profile, valid id number."
+      ],
+      "requirement_set": {
+        "version": "zab-5b690fc6",
+        "documents": [
+          {
+            "document_type": "id_document",
+            "label": "Certified copy of ID",
+            "rules": [
+              {
+                "type": "valid_id_number"
+              },
+              {
+                "type": "id_matches_profile"
+              },
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "registration_letter",
+            "label": "Proof of registration or acceptance",
+            "rules": [
+              {
+                "type": "name_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "academic_record",
+            "label": "Latest academic record",
+            "rules": [
+              {
+                "type": "name_matches_profile"
+              },
+              {
+                "type": "min_number",
+                "params": {
+                  "field": "average_percent",
+                  "minimum": 70,
+                  "label": "final average (%)"
+                }
+              }
+            ]
+          },
+          {
+            "document_type": "motivation_letter",
+            "label": "Motivation letter",
+            "rules": []
+          },
+          {
+            "document_type": "proof_of_residence",
+            "label": "Proof of residence",
+            "rules": [
+              {
+                "type": "name_matches_profile"
+              },
+              {
+                "type": "address_matches_profile"
+              }
+            ]
+          },
+          {
+            "document_type": "proof_of_income",
+            "label": "Proof of household income",
+            "rules": []
+          },
+          {
+            "document_type": "parent_id_document",
+            "label": "Certified copy of parent or guardian ID",
+            "rules": [
+              {
+                "type": "valid_id_number"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "67f6c67d-ba4c-5b53-a6b1-dc5cc3edd5c8",
+      "title": "Donald White/ Mandla A. Ndwanya Memorial Fund Bursary",
+      "funder": "Donald White/ Mandla A. Ndwanya Memorial Fund",
+      "deadline": "2026-11-15",
+      "study_years": [
+        2027
+      ],
+      "faculties": [
+        "commerce",
+        "education",
+        "health_sciences",
+        "humanities"
+      ],
+      "courses": [
+        "business studies",
+        "commerce",
+        "education",
+        "healthcare",
+        "medicine",
+        "social work"
+      ],
+      "application_url": null,
+      "official_source_url": "https://www.zabursaries.co.za/commerce-bursaries-south-africa/donald-white-mandla-a-ndwanya-memorial-fund-bursary/",
+      "listing_url": "https://www.zabursaries.co.za/bursaries-closing-in-november-2026/",
+      "status": "draft",
+      "covers": [
+        "books",
+        "tuition"
+      ],
+      "unchecked_requirements": [
+        "Must have completed Matric",
+        "Must have attended a high school within the Western Cape province",
+        "Must be studying or intend on studying towards an undergraduate qualification in Business Studies, Commerce, Education, Healthcare, Medicine, or Social Work",
+        "Must be studying or intend on studying at a recognized FET College or University in South Africa",
+        "Must be in financial need",
+        "Must be passionate about community service",
+        "Preference given to first-generation students attending a higher learning institution"
+      ],
+      "review_notes": [],
+      "requirement_set": {
+        "version": "zab-fd512240",
+        "documents": [
+          {
+            "document_type": "id_document",
+            "label": "Certified copy of ID",
+            "rules": []
+          },
+          {
+            "document_type": "academic_record",
+            "label": "Latest academic record",
+            "rules": []
+          },
+          {
+            "document_type": "cv",
+            "label": "Curriculum vitae",
+            "rules": []
+          },
+          {
+            "document_type": "proof_of_income",
+            "label": "Proof of household income",
+            "rules": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "2922ed42-7b90-5891-8ff1-5233b9764ccb",
+      "title": "Emalahleni Local Municipality Bursary",
+      "funder": "Emalahleni Local Municipality",
+      "deadline": "2026-11-27",
+      "study_years": [
+        2027
+      ],
+      "faculties": [
+        "commerce",
+        "engineering",
+        "humanities",
+        "information_technology",
+        "law",
+        "science"
+      ],
+      "courses": [
+        "analytical chemistry",
+        "architecture",
+        "civil engineering",
+        "developmental studies",
+        "disaster management",
+        "electrical engineering",
+        "environmental management",
+        "finance",
+        "horticulture",
+        "information technology (software development)",
+        "law",
+        "mechanical engineering",
+        "microbiology",
+        "social science",
+        "urban and regional planning",
+        "water and sanitation"
+      ],
+      "application_url": null,
+      "official_source_url": "https://www.zabursaries.co.za/government-bursaries-south-africa/emalahleni-local-municipality-bursary/",
+      "listing_url": "https://www.zabursaries.co.za/bursaries-closing-in-november-2026/",
+      "status": "draft",
+      "covers": [],
+      "unchecked_requirements": [
+        "Must be a South African citizen",
+        "Must be between 18 and 35 years old",
+        "Must reside within the Emalahleni Local Municipality, Mpumalanga",
+        "Must be from a previously disadvantaged background",
+        "Must be currently in Matric or have completed Matric",
+        "Must be studying or intend to study towards an undergraduate qualification in one of the listed fields",
+        "Must be studying or accepted/provisionally accepted at an accredited public South African institution of higher learning",
+        "Must be in financial need"
+      ],
+      "review_notes": [],
+      "requirement_set": {
+        "version": "zab-80d50350",
+        "documents": [
+          {
+            "document_type": "id_document",
+            "label": "Certified copy of ID",
+            "rules": [
+              {
+                "type": "age_limit",
+                "params": {
+                  "min_years": 18,
+                  "max_years": 35
+                }
+              }
+            ]
+          },
+          {
+            "document_type": "academic_record",
+            "label": "Latest academic record",
+            "rules": []
+          },
+          {
+            "document_type": "registration_letter",
+            "label": "Proof of registration or acceptance",
+            "rules": []
+          },
+          {
+            "document_type": "proof_of_residence",
+            "label": "Proof of residence",
+            "rules": []
+          },
+          {
+            "document_type": "parent_id_document",
+            "label": "Certified copy of parent or guardian ID",
+            "rules": []
+          },
+          {
+            "document_type": "proof_of_income",
+            "label": "Proof of household income",
+            "rules": []
+          },
+          {
+            "document_type": "motivation_letter",
+            "label": "Motivation letter",
+            "rules": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "6fa3d91f-6c5a-5f3d-9bbe-2a6175fe99e7",
+      "title": "Funza Lushaka Bursary",
+      "funder": "Department of Basic Education",
+      "deadline": "2027-01-31",
+      "study_years": [
+        2027
+      ],
+      "faculties": [
+        "education"
+      ],
+      "courses": [
+        "bachelor of education (b.ed.) - foundation phase (grade r\u20133)",
+        "bachelor of education (b.ed.) - intermediate phase (grade 4\u20136)",
+        "bachelor of education (b.ed.) - senior and further education and training (grade 7\u201312)",
+        "bachelor of education in early childhood care and education (b.ed. ecce)"
+      ],
+      "application_url": null,
+      "official_source_url": "https://www.zabursaries.co.za/education-bursaries-south-africa/the-funza-lushaka-bursary-programme-south-africa/",
+      "listing_url": "https://www.zabursaries.co.za/bursaries-closing-in-november-2026/",
+      "status": "draft",
+      "covers": [
+        "accommodation",
+        "books",
+        "employment",
+        "living_allowance",
+        "meals",
+        "tuition"
+      ],
+      "unchecked_requirements": [
+        "Must be a South African citizen",
+        "Must be 30 years old or younger on 31 March 2027 (for first-time/first-year applicants)",
+        "Must be accepted into an approved B.Ed. degree programme at a public university in South Africa",
+        "For Intermediate, Senior and FET phases: must specialise in 2 or more priority subject areas",
+        "Must have a strong academic record",
+        "Must be interested in working with young people and enthusiastic for a professional career in teaching",
+        "Must not have already completed a teaching qualification",
+        "Must not have a criminal record or offence registered against you",
+        "Must be willing to teach at any school selected by the Provincial Education Department",
+        "Must read the Funza Lushaka Bursary Information before applying",
+        "Must meet specific Matric/NSC subject and pass level requirements for the chosen teaching phase",
+        "Currently funded students must have passed all prior modules and meet minimum average requirements"
+      ],
+      "review_notes": [],
+      "requirement_set": {
+        "version": "zab-97d170e1",
+        "documents": []
+      }
+    }
+  ]
+}

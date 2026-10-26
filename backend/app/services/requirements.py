@@ -17,6 +17,7 @@ RULE_TYPES = {
     "min_number": rules.MinNumber,
     "max_number": rules.MaxNumber,
     "field_equals": rules.FieldEquals,
+    "age_limit": rules.AgeLimit,
 }
 
 

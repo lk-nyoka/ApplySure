@@ -99,7 +99,7 @@ See **[DEPLOY.md](DEPLOY.md)**:
 ## Tests
 
 ```powershell
-cd backend;  .\.venv\Scripts\python.exe -m pytest -q     # 52 tests: rules, uploads, OCR, ingestion, API
+cd backend;  .\.venv\Scripts\python.exe -m pytest -q     # 54 tests: rules, uploads, OCR, ingestion, API
 cd frontend; npm test; npm run build; npm run preflight    # 20 tests, plus the production build and pre-launch checks
 ```
 

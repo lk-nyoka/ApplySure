@@ -381,7 +381,7 @@
         "Standard checks added: id matches profile, name matches profile, valid id number."
       ],
       "requirement_set": {
-        "version": "zab-748346e8",
+        "version": "zab-00c31a94",
         "documents": [
           {
             "document_type": "id_document",
@@ -395,6 +395,13 @@
               },
               {
                 "type": "name_matches_profile"
+              },
+              {
+                "type": "age_limit",
+                "params": {
+                  "min_years": 18,
+                  "max_years": 35
+                }
               }
             ]
           },
@@ -603,7 +610,7 @@
         "Standard checks added: id matches profile, name matches profile, valid id number."
       ],
       "requirement_set": {
-        "version": "zab-f55a95bf",
+        "version": "zab-0725e97c",
         "documents": [
           {
             "document_type": "id_document",
@@ -617,6 +624,13 @@
               },
               {
                 "type": "name_matches_profile"
+              },
+              {
+                "type": "age_limit",
+                "params": {
+                  "min_years": 18,
+                  "max_years": 35
+                }
               }
             ]
           },
@@ -805,7 +819,7 @@
         "Standard checks added: address matches profile, id matches profile, name matches profile, valid id number."
       ],
       "requirement_set": {
-        "version": "zab-58fa1eb8",
+        "version": "zab-901a7a52",
         "documents": [
           {
             "document_type": "id_document",
@@ -819,6 +833,13 @@
               },
               {
                 "type": "name_matches_profile"
+              },
+              {
+                "type": "age_limit",
+                "params": {
+                  "min_years": 18,
+                  "max_years": 35
+                }
               }
             ]
           },
@@ -1090,7 +1111,7 @@
         "Standard checks added: address matches profile, id matches profile, name matches profile, valid id number."
       ],
       "requirement_set": {
-        "version": "zab-f2d9a64d",
+        "version": "zab-b6421bda",
         "documents": [
           {
             "document_type": "id_document",
@@ -1110,6 +1131,12 @@
               },
               {
                 "type": "name_matches_profile"
+              },
+              {
+                "type": "age_limit",
+                "params": {
+                  "max_years": 35
+                }
               }
             ]
           },
@@ -1877,7 +1904,7 @@
         "Standard checks added: address matches profile, id matches profile, income limit, name matches profile, valid id number."
       ],
       "requirement_set": {
-        "version": "zab-e6ac2011",
+        "version": "zab-eb505337",
         "documents": [
           {
             "document_type": "id_document",
@@ -1891,6 +1918,12 @@
               },
               {
                 "type": "name_matches_profile"
+              },
+              {
+                "type": "age_limit",
+                "params": {
+                  "max_years": 21
+                }
               }
             ]
           },
@@ -1936,7 +1969,7 @@
                 "type": "max_number",
                 "params": {
                   "field": "household_income_annual",
-                  "maximum": 15000,
+                  "maximum": 180000,
                   "label": "annual household income (R)"
                 }
               }
@@ -2125,7 +2158,7 @@
         "Standard checks added: id matches profile, name matches profile, valid id number."
       ],
       "requirement_set": {
-        "version": "zab-ad56b288",
+        "version": "zab-9b815305",
         "documents": [
           {
             "document_type": "id_document",
@@ -2169,10 +2202,10 @@
             "label": "Proof of household income",
             "rules": [
               {
-                "type": "max_number",
+                "type": "min_number",
                 "params": {
                   "field": "household_income_annual",
-                  "maximum": 600000,
+                  "minimum": 350000,
                   "label": "annual household income (R)"
                 }
               },
@@ -3817,7 +3850,7 @@
         "Standard checks added: address matches profile, id matches profile, name matches profile, valid id number."
       ],
       "requirement_set": {
-        "version": "zab-ddacfd96",
+        "version": "zab-5b4f3a43",
         "documents": [
           {
             "document_type": "id_document",
@@ -3831,6 +3864,13 @@
               },
               {
                 "type": "name_matches_profile"
+              },
+              {
+                "type": "age_limit",
+                "params": {
+                  "min_years": 18,
+                  "max_years": 25
+                }
               }
             ]
           },
@@ -3925,212 +3965,6 @@
             ]
           }
         ]
-      }
-    },
-    {
-      "id": "67f6c67d-ba4c-5b53-a6b1-dc5cc3edd5c8",
-      "title": "Donald White/ Mandla A. Ndwanya Memorial Fund Bursary",
-      "funder": "Donald White/ Mandla A. Ndwanya Memorial Fund",
-      "deadline": "2026-11-15",
-      "study_years": [
-        2027
-      ],
-      "faculties": [
-        "commerce",
-        "education",
-        "health_sciences",
-        "humanities"
-      ],
-      "courses": [
-        "business studies",
-        "commerce",
-        "education",
-        "healthcare",
-        "medicine",
-        "social work"
-      ],
-      "application_url": null,
-      "official_source_url": "https://www.zabursaries.co.za/commerce-bursaries-south-africa/donald-white-mandla-a-ndwanya-memorial-fund-bursary/",
-      "listing_url": "https://www.zabursaries.co.za/bursaries-closing-in-november-2026/",
-      "status": "draft",
-      "covers": [
-        "books",
-        "tuition"
-      ],
-      "unchecked_requirements": [
-        "Must have completed Matric",
-        "Must have attended a high school within the Western Cape province",
-        "Must be studying or intend on studying towards an undergraduate qualification in Business Studies, Commerce, Education, Healthcare, Medicine, or Social Work",
-        "Must be studying or intend on studying at a recognized FET College or University in South Africa",
-        "Must be in financial need",
-        "Must be passionate about community service",
-        "Preference given to first-generation students attending a higher learning institution"
-      ],
-      "review_notes": [],
-      "requirement_set": {
-        "version": "zab-fd512240",
-        "documents": [
-          {
-            "document_type": "id_document",
-            "label": "Certified copy of ID",
-            "rules": []
-          },
-          {
-            "document_type": "academic_record",
-            "label": "Latest academic record",
-            "rules": []
-          },
-          {
-            "document_type": "cv",
-            "label": "Curriculum vitae",
-            "rules": []
-          },
-          {
-            "document_type": "proof_of_income",
-            "label": "Proof of household income",
-            "rules": []
-          }
-        ]
-      }
-    },
-    {
-      "id": "2922ed42-7b90-5891-8ff1-5233b9764ccb",
-      "title": "Emalahleni Local Municipality Bursary",
-      "funder": "Emalahleni Local Municipality",
-      "deadline": "2026-11-27",
-      "study_years": [
-        2027
-      ],
-      "faculties": [
-        "commerce",
-        "engineering",
-        "humanities",
-        "information_technology",
-        "law",
-        "science"
-      ],
-      "courses": [
-        "analytical chemistry",
-        "architecture",
-        "civil engineering",
-        "developmental studies",
-        "disaster management",
-        "electrical engineering",
-        "environmental management",
-        "finance",
-        "horticulture",
-        "information technology (software development)",
-        "law",
-        "mechanical engineering",
-        "microbiology",
-        "social science",
-        "urban and regional planning",
-        "water and sanitation"
-      ],
-      "application_url": null,
-      "official_source_url": "https://www.zabursaries.co.za/government-bursaries-south-africa/emalahleni-local-municipality-bursary/",
-      "listing_url": "https://www.zabursaries.co.za/bursaries-closing-in-november-2026/",
-      "status": "draft",
-      "covers": [],
-      "unchecked_requirements": [
-        "Must be a South African citizen",
-        "Must be between 18 and 35 years old",
-        "Must reside within the Emalahleni Local Municipality, Mpumalanga",
-        "Must be from a previously disadvantaged background",
-        "Must be currently in Matric or have completed Matric",
-        "Must be studying or intend to study towards an undergraduate qualification in one of the listed fields",
-        "Must be studying or accepted/provisionally accepted at an accredited public South African institution of higher learning",
-        "Must be in financial need"
-      ],
-      "review_notes": [],
-      "requirement_set": {
-        "version": "zab-097ebd82",
-        "documents": [
-          {
-            "document_type": "id_document",
-            "label": "Certified copy of ID",
-            "rules": []
-          },
-          {
-            "document_type": "academic_record",
-            "label": "Latest academic record",
-            "rules": []
-          },
-          {
-            "document_type": "registration_letter",
-            "label": "Proof of registration or acceptance",
-            "rules": []
-          },
-          {
-            "document_type": "proof_of_residence",
-            "label": "Proof of residence",
-            "rules": []
-          },
-          {
-            "document_type": "parent_id_document",
-            "label": "Certified copy of parent or guardian ID",
-            "rules": []
-          },
-          {
-            "document_type": "proof_of_income",
-            "label": "Proof of household income",
-            "rules": []
-          },
-          {
-            "document_type": "motivation_letter",
-            "label": "Motivation letter",
-            "rules": []
-          }
-        ]
-      }
-    },
-    {
-      "id": "6fa3d91f-6c5a-5f3d-9bbe-2a6175fe99e7",
-      "title": "Funza Lushaka Bursary",
-      "funder": "Department of Basic Education",
-      "deadline": "2027-01-31",
-      "study_years": [
-        2027
-      ],
-      "faculties": [
-        "education"
-      ],
-      "courses": [
-        "bachelor of education (b.ed.) - foundation phase (grade r\u20133)",
-        "bachelor of education (b.ed.) - intermediate phase (grade 4\u20136)",
-        "bachelor of education (b.ed.) - senior and further education and training (grade 7\u201312)",
-        "bachelor of education in early childhood care and education (b.ed. ecce)"
-      ],
-      "application_url": null,
-      "official_source_url": "https://www.zabursaries.co.za/education-bursaries-south-africa/the-funza-lushaka-bursary-programme-south-africa/",
-      "listing_url": "https://www.zabursaries.co.za/bursaries-closing-in-november-2026/",
-      "status": "draft",
-      "covers": [
-        "accommodation",
-        "books",
-        "employment",
-        "living_allowance",
-        "meals",
-        "tuition"
-      ],
-      "unchecked_requirements": [
-        "Must be a South African citizen",
-        "Must be 30 years old or younger on 31 March 2027 (for first-time/first-year applicants)",
-        "Must be accepted into an approved B.Ed. degree programme at a public university in South Africa",
-        "For Intermediate, Senior and FET phases: must specialise in 2 or more priority subject areas",
-        "Must have a strong academic record",
-        "Must be interested in working with young people and enthusiastic for a professional career in teaching",
-        "Must not have already completed a teaching qualification",
-        "Must not have a criminal record or offence registered against you",
-        "Must be willing to teach at any school selected by the Provincial Education Department",
-        "Must read the Funza Lushaka Bursary Information before applying",
-        "Must meet specific Matric/NSC subject and pass level requirements for the chosen teaching phase",
-        "Currently funded students must have passed all prior modules and meet minimum average requirements"
-      ],
-      "review_notes": [],
-      "requirement_set": {
-        "version": "zab-97d170e1",
-        "documents": []
       }
     }
   ]

@@ -79,7 +79,9 @@ def read_page(text: str, title: str, url: str) -> dict:
         if re.search(pattern, how_to):
             documents.append({"document_type": document_type, "rules": []})
     income = re.search(r"household income[^.]{0,80}?(not (?:be )?more than|less than|below|under|maximum of|up to)[^.]{0,40}", eligibility, re.I)
-    if income and (limit := _rand(income.group(0))) and any(d["document_type"] == "proof_of_income" for d in documents):
+    if income and (limit := _rand(income.group(0))) and re.search(r"per month|a month|monthly|p/m", income.group(0), re.I):
+        limit *= 12  # the engine compares annual household income
+    if income and limit and any(d["document_type"] == "proof_of_income" for d in documents):
         next(d for d in documents if d["document_type"] == "proof_of_income")["rules"].append(
             {"type": "max_number", "field": "household_income_annual", "value": limit})
     average = re.search(r"(?:average|aggregate) of (?:at least )?(\d{2})\s?%", eligibility, re.I)

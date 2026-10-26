@@ -21,7 +21,7 @@ JSON keys:
  "documents": [{"document_type": one of id_document, academic_record, proof_of_income, proof_of_residence, bank_confirmation, motivation_letter, cv, registration_letter, parent_id_document,
                 "rules": [{"type": one of max_age, not_expired, valid_id_number, id_matches_profile, name_matches_profile, address_matches_profile, min_number, max_number, field_equals,
                            "max_days": number (max_age), "field": average_percent|household_income_annual|academic_year (min_number, max_number, field_equals),
-                           "value": number (the minimum, maximum or required value)}]}],
+                           "value": number (the minimum, maximum or required value; household income is always ANNUAL rand, so multiply a monthly limit by 12)}]}],
  "covers": what the bursary pays for, only these keys: tuition, accommodation, books, meals, living_allowance, laptop, transport, vacation_work, employment (a job offer or work-back after studies),
  "unchecked_requirements": [plain-language eligibility conditions that no document rule can test, e.g. citizenship, field of study, age].
 Only list documents the page says applicants must submit. Only add a rule when the page states the limit."""
@@ -87,6 +87,12 @@ def _rule(document_type: str, raw: Any, dropped: list[str]) -> dict | None:
             return None
         key = {"min_number": "minimum", "max_number": "maximum", "field_equals": "expected"}[kind]
         return {"type": kind, "params": {"field": field, key: int(value) if kind == "field_equals" else value, "label": label}}
+    if kind == "age_limit" and document_type == "id_document":
+        bounds = {k: int(v) for k in ("min_years", "max_years") if (v := _number(raw.get(k))) is not None and 10 <= v <= 80}
+        if not bounds:
+            dropped.append("id_document: could not read a valid age_limit")
+            return None
+        return {"type": kind, "params": bounds}
     if kind == "max_age" and kind in _PLAIN_RULES.get(document_type, ()):
         days = _number(raw.get("max_days"))
         if days is None or not 1 <= days <= 3650:

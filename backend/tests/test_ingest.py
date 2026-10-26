@@ -274,3 +274,12 @@ def test_titles_drop_the_listing_site_suffix():
     for raw, clean in (("Tronox Bursary South Africa 2027", "Tronox Bursary"), ("RDM External STEM Bursary 2027", "RDM External STEM Bursary"),
                        ("ISFAP Bursary", "ISFAP Bursary")):
         assert sanitize({"title": raw}, "https://www.zabursaries.co.za/a/b/")["title"] == clean
+
+
+def test_layout_reader_turns_a_monthly_income_limit_into_an_annual_one():
+    from app.services.ingest.rules_reader import read_page
+
+    page = PAGE.replace("not more than R350 000 per year", "not more than R15 000 per month")
+    record = sanitize(read_page(page, "Acme Engineering Bursary South Africa 2027", "https://www.zabursaries.co.za/a/b/"), "https://www.zabursaries.co.za/a/b/")
+    income = next(d for d in record["requirement_set"]["documents"] if d["document_type"] == "proof_of_income")
+    assert income["rules"][0]["params"]["maximum"] == 180_000
